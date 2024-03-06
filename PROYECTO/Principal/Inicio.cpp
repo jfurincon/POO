@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../Salud/Persona.cpp"
 
 using namespace std;
 

@@ -70,6 +70,30 @@ class Persona{
     }
 };
 
+class Empleado : Persona{
+    public:
+    string cargo;
+    int valorHora;
+    float horasTrabajadas;
+    string departamento;
+
+    Empleado(int valorHora){
+        this->valorHora = valorHora;
+    }
+
+    void calcularHorarios(){
+        int valor = (valorHora * horasTrabajadas);
+        int reteica = valor - (valor * 0.00966);
+
+        cout << tipoDoc << " " << documento << endl;
+        cout << "Nombre: " << nombre << " " << apellido << endl;
+        cout << "Cargo: " << cargo << endl;
+        cout << "Horas trabajadas: " << horasTrabajadas << endl;
+        cout << "Valor hora: " << valorHora << endl;
+        cout << "Total a pagar: " << reteica << endl;
+    }
+};
+
 int main(){
     Persona persona1;
     persona1.pedirDatos();
@@ -85,5 +109,6 @@ int main(){
         cout << "Error" << endl;
     }
     persona1.mayorEdad();
+
     return 0;
 };
