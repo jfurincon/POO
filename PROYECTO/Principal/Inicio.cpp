@@ -9,4 +9,5 @@ int main(){
     persona1.mostrarPersona();
     persona1.calcularIMC();
     return 0;
-};
+}
+// como invocar los metodos desde inicio, cuando los metodos son privados.
