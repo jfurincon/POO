@@ -18,6 +18,12 @@ class Persona{
     
     }
 
+    /*
+    En caso de querer invocar metodos privados en mi main, debo hacerlos publicos. Esto se logra creando
+    un nuevo método publico que invoque al método privado dentro de la clase, luego en el main, invoco este
+    nuevo método publico.
+    */
+
     void pedirDatos(){
         cout << "Ingrese el tipo de documento: ";
         cin >> tipoDoc;
@@ -80,7 +86,7 @@ class Empleado : Persona{
     Empleado(int valorHora){
         this->valorHora = valorHora;
     }
-
+        
     void calcularHorarios(){
         int valor = (valorHora * horasTrabajadas);
         int reteica = valor - (valor * 0.00966);
