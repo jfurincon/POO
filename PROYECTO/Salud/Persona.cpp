@@ -2,8 +2,8 @@
 
 using namespace std;
 
-class Persona{
-    public:
+class Persona{ //aplicar el principio de encapsulamiento para que los atributos sean privados.
+    private:
     string tipoDoc;
     int documento;
     string nombre;
@@ -14,6 +14,7 @@ class Persona{
     string sexo;
 
     // constructor vacio
+    public:
     Persona(){
     
     }
@@ -23,6 +24,75 @@ class Persona{
     un nuevo método publico que invoque al método privado dentro de la clase, luego en el main, invoco este
     nuevo método publico.
     */
+
+   // definiendo metodos accesores
+
+   public:
+
+   void setTipoDoc(string newTyDoc){
+       tipoDoc = newTyDoc;
+    }
+
+    string getTipoDoc(){
+        return tipoDoc;
+    }
+
+    void setDocumento(int newDoc){
+        documento = newDoc;
+    }
+
+    int getDocumento(){
+        return documento;
+    }
+
+    void setNombre(string newNombre){
+        nombre = newNombre;
+    }
+
+    string getNombre(){
+        return nombre;
+    }
+
+    void setApellido(string newApellido){
+        apellido = newApellido;
+    }
+
+    string getApellido(){
+        return apellido;
+    }
+
+    void setPeso(float newPeso){
+        peso = newPeso;
+    }
+
+    float getPeso(){
+        return peso;
+    }
+
+    void setEstatura(float newEstatura){
+        estatura = newEstatura;
+    }
+
+    float getEstatura(){
+        return estatura;
+    }
+
+    void setEdad(int newEdad){
+        edad = newEdad;
+    }
+
+    int getEdad(){
+        return edad;
+    }
+
+    void setSexo(string newSexo){
+        sexo = newSexo;
+    }
+
+    string getSexo(){
+        return sexo;
+    }
+
 
     void pedirDatos(){
         cout << "Ingrese el tipo de documento: ";
@@ -54,17 +124,9 @@ class Persona{
         cout << "Sexo: " << sexo << endl;
     }
 
-    string calcularIMC(){
+    float calcularIMC(){ //check
         float imc = peso/(estatura*estatura);
-        if (imc < 20){
-            return "PESOBAJO";
-        } else if (20 <= imc <= 25){
-            return "PESOIDEAL";
-        } else if (imc > 25){
-            return "SOBREPESO";
-        }else{
-            return "ERROR";
-        }
+        return imc;
     }
 
     void mayorEdad(){
@@ -91,8 +153,8 @@ class Empleado : Persona{
         int valor = (valorHora * horasTrabajadas);
         int reteica = valor - (valor * 0.00966);
 
-        cout << tipoDoc << " " << documento << endl;
-        cout << "Nombre: " << nombre << " " << apellido << endl;
+        cout << getTipoDoc() << " " << getDocumento() << endl;
+        cout << "Nombre: " << getNombre() << " " << getApellido() << endl;
         cout << "Cargo: " << cargo << endl;
         cout << "Horas trabajadas: " << horasTrabajadas << endl;
         cout << "Valor hora: " << valorHora << endl;
@@ -105,11 +167,11 @@ int main(){
     persona1.pedirDatos();
     persona1.mostrarPersona();
     persona1.calcularIMC();
-    if (persona1.calcularIMC() == "PESOBAJO"){
+    if (persona1.calcularIMC() < 20){
         cout << "Peso bajo" << endl;
-    } else if (persona1.calcularIMC() == "PESOIDEAL"){
+    } else if (20 < persona1.calcularIMC() < 25){
         cout << "Peso ideal" << endl;
-    } else if (persona1.calcularIMC() == "SOBREPESO"){
+    } else if (persona1.calcularIMC() > 25){
         cout << "Sobrepeso" << endl;
     } else {
         cout << "Error" << endl;
@@ -118,3 +180,11 @@ int main(){
 
     return 0;
 };
+
+/*
+metodos accesores: setters y getters.
+
+Si es para registrar o modificar datos, es un setter.
+Si es para consultar datos, es un getter.
+Esto se le conoce como encapsulamiento.
+*/

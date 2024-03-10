@@ -11,3 +11,5 @@ int main(){
     return 0;
 }
 // como invocar los metodos desde inicio, cuando los metodos son privados.
+// leer herencia, encapsulamiento, sobrecarga, interfaces, clases abstractas en c++
+// como invocar los metodos desde inicio cuando los metodos son privados (hacerlo)
