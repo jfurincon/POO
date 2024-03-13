@@ -1,4 +1,5 @@
 #include <iostream>
+#include <list>
 
 using namespace std;
 
@@ -138,15 +139,67 @@ class Persona{ //aplicar el principio de encapsulamiento para que los atributos 
     }
 };
 
-class Empleado : Persona{
-    public:
+class Empleado : Persona{ //mostrar todo lo que se ha aprendido en la clase de herencia.
+    private:
     string cargo;
     int valorHora;
     float horasTrabajadas;
     string departamento;
 
-    Empleado(int valorHora){
-        this->valorHora = valorHora;
+    public:
+    void setCargo(string newCargo){
+        cargo = newCargo;
+    }
+
+    string getCargo(){
+        return cargo;
+    }
+
+    void setValorHora(int newValorHora){
+        valorHora = newValorHora;
+    }
+
+    int getValorHora(){
+        return valorHora;
+    }
+
+    void setHorasTrabajadas(float newHorasTrabajadas){
+        horasTrabajadas = newHorasTrabajadas;
+    }
+
+    float getHorasTrabajadas(){
+        return horasTrabajadas;
+    }
+
+    void setDepartamento(string newDepartamento){
+        departamento = newDepartamento;
+    }
+
+    string getDepartamento(){
+        return departamento;
+    }
+
+    Empleado(){
+    }
+
+    void pedirDatos(){
+        // si queremos tener el metodo de la clase madre, se invoca así:
+        // Persona::pedirDatos();
+        cout << "Ingrese el cargo: ";
+        cin >> cargo;
+        cout << "Ingrese el valor de la hora: ";
+        cin >> valorHora;
+        cout << "Ingrese las horas trabajadas: ";
+        cin >> horasTrabajadas;
+        cout << "Ingrese el departamento: ";
+        cin >> departamento;
+    }
+
+    void mostrarDatos(){
+        cout << "Cargo: " << cargo << endl;
+        cout << "Valor de la hora: " << valorHora << endl;
+        cout << "Horas trabajadas: " << horasTrabajadas << endl;
+        cout << "Departamento: " << departamento << endl;
     }
         
     void calcularHorarios(){
@@ -159,6 +212,11 @@ class Empleado : Persona{
         cout << "Horas trabajadas: " << horasTrabajadas << endl;
         cout << "Valor hora: " << valorHora << endl;
         cout << "Total a pagar: " << reteica << endl;
+    }
+
+    int mayorEdad(int fechaNacimiento){
+        int edad = 2024 - fechaNacimiento;
+        return edad;
     }
 };
 
@@ -188,3 +246,4 @@ Si es para registrar o modificar datos, es un setter.
 Si es para consultar datos, es un getter.
 Esto se le conoce como encapsulamiento.
 */
+
