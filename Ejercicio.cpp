@@ -41,5 +41,8 @@ int main(){
     auto it3 = next(frutas.begin(), 2);
     cout << *it3 << endl; // *it3 es el valor que tiene el apuntador it3
 
+    // tarea: crear lista de reproducción de spotify y que el usuario pueda crear su propia lista de reproducción
+    // lista enlazada con mi amigo de spotify like a jam. (se crea la lista de una y la otra persona).
+
     return 0;
 };
