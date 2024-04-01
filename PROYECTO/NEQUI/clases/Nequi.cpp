@@ -1,4 +1,5 @@
 #include <iostream>
+#include <list>
 
 using namespace std;
 
@@ -11,6 +12,8 @@ class Nequi{
         int telefono;
         string correo;
         string clave;
+        int saldo;
+        list<int> transacciones;
 
     // constructor
     public:
@@ -68,6 +71,14 @@ class Nequi{
             return clave;
         }
 
+        void setSaldo(int newSaldo){
+            saldo = newSaldo;
+        }
+
+        int getSaldo(){
+            return saldo;
+        }
+
     // metodos
     public:
         void crearCuenta(){
@@ -87,5 +98,56 @@ class Nequi{
 
         }
 
-        
+        bool login(){
+            int telefonoIngresado;
+            string claveIngresada;
+            cout << "Ingrese su telefono: ";
+            cin >> telefonoIngresado;
+            if(telefonoIngresado != telefono){
+                cout << "Telefono incorrecto" << endl;
+                return false;
+            }
+            cout << "Ingrese su clave: ";
+            cin >> claveIngresada;
+            if(claveIngresada == clave){
+                cout << "Bienvenido a Nequi" << endl;
+                return true;
+            }else{
+                cout << "Clave incorrecta" << endl;
+                return false;
+            }
+        }
+
+        void mostrarDatos(){
+            getNombre();
+            getApellido();
+            getCedula();
+            getTelefono();
+            getCorreo();
+        }
+
+        void consignar(int valor){
+            saldo += valor;
+        }
+
+        void retirar(int valor){
+            saldo -= valor;
+        }
+
+        void transferir(int valor, Nequi cuenta){
+            saldo -= valor;
+            cuenta.saldo += valor;
+        }
+
+        void consultarSaldo(){
+            getSaldo();
+        }
+
+        void cambiarClave(string nuevaClave){
+            clave = nuevaClave;
+        }
+
+        void agregarTransaccion(int valor){
+            transacciones.push_back(valor);
+        }
 };
