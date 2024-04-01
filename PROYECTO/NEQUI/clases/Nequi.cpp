@@ -82,19 +82,32 @@ class Nequi{
     // metodos
     public:
         void crearCuenta(){
+            string nombre1;
+            string apellido1;
+            int cedula1;
+            int telefono1;
+            string correo1;
+            string clave1;
+
             cout << "Para crear una cuenta en Nequi, por favor ingrese los siguientes datos: " << endl;
             cout << "Nombre: ";
-            cin >> nombre;
+            cin >> nombre1;
+            setNombre(nombre1);
             cout << "Apellido: ";
-            cin >> apellido;
+            cin >> apellido1;
+            setApellido(apellido1);
             cout << "Cedula: ";
-            cin >> cedula;
+            cin >> cedula1;
+            setCedula(cedula1);
             cout << "Telefono: ";
-            cin >> telefono;
+            cin >> telefono1;
+            setTelefono(telefono1);
             cout << "Correo: ";
-            cin >> correo;
+            cin >> correo1;
+            setCorreo(correo1);
             cout << "Clave: ";
-            cin >> clave;
+            cin >> clave1;
+            setClave(clave1);
 
         }
 
@@ -149,5 +162,11 @@ class Nequi{
 
         void agregarTransaccion(int valor){
             transacciones.push_back(valor);
+        }
+
+        void mostrarTransacciones(){
+            for (list<int>::iterator it = transacciones.begin(); it != transacciones.end(); it++){
+                cout << *it << endl;
+            }
         }
 };
